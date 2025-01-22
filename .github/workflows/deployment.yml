@@ -1,5 +1,6 @@
 name: Deploy Project
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -8,20 +9,21 @@ jobs:
         uses: actions/checkout@v3
       - name: Install NodeJS
         uses: actions/setup-node@v3
-        with: 
+        with:
           node-version: '20'
       - name: Install dependencies
         run: npm ci
       - name: Run tests
         run: npm test
-  deploy: 
-    runs-om: ubuntu-latest
-    steps: 
+
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
       - name: Get code
         uses: actions/checkout@v3
       - name: Install NodeJS
         uses: actions/setup-node@v3
-        with: 
+        with:
           node-version: '20'
       - name: Install dependencies
         run: npm ci
@@ -31,7 +33,3 @@ jobs:
         run: npm run build
       - name: Deploy
         run: echo "Deploying ..."
-        
-  
-          
-          
